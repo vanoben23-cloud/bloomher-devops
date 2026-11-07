@@ -1,7 +1,9 @@
 # 🌸 BloomHer — AWS DevOps Portfolio Project
 
 **Python | Flask | Linux | AWS EC2 | Nginx | Gunicorn | Git | GitHub**
+## BloomHer Application Screenshot
 
+![BloomHer Website](images/bloomher-homepage.png)
 ## Project Overview
 
 BloomHer is an educational women's wellness application created as a hands-on cloud computing and DevOps portfolio project.
