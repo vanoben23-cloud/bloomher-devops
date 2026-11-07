@@ -68,6 +68,59 @@ The architecture represents the EC2 application deployment practiced in the proj
 
 ## Key Lessons Learned
 
+## Linux Deployment and Troubleshooting
+
+### Environment
+- Cloud Platform: AWS EC2
+- Operating System: Ubuntu Linux
+- Web Server: Nginx
+- Application Server: Gunicorn
+- Backend: Python Flask
+- Service Manager: systemd
+
+### Commands Used to Verify Deployment
+
+**Check Nginx service:**
+
+`sudo systemctl status nginx --no-pager`
+
+Result: Nginx active (running).
+
+**Check BloomHer application service:**
+
+`sudo systemctl status bloomher --no-pager`
+
+Result: BloomHer active (running).
+
+**Test the web server:**
+
+`curl -I http://localhost`
+
+Result: HTTP/1.1 200 OK.
+
+**Verify Git repository status:**
+
+`git status`
+
+Result: Confirmed local project synchronization with GitHub before subsequent README updates.
+
+### Deployment Verification
+
+I confirmed that BloomHer was accessible through the EC2 public IP address using a web browser.
+
+### Skills Demonstrated
+
+- Linux service management
+- Web application deployment
+- HTTP connectivity testing
+- Nginx reverse proxy configuration
+- Git and GitHub version control
+- Cloud application verification
+
+### Security Considerations
+
+The current demo was tested using HTTP. HTTPS, stronger access controls, and a production security review are future improvements. No real patient data should be entered into the demonstration.
+
 This project helped me understand how a Python web application is hosted on a Linux server, how web servers communicate with backend applications, and how Git and GitHub support version control.
 
 I also practiced Linux troubleshooting, file management, Git authentication, and remote repository publishing.
