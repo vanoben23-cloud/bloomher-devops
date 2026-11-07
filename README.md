@@ -34,6 +34,15 @@ I used this project to practice Linux server administration, AWS EC2 application
 
 ## Application Architecture
 
+```mermaid
+flowchart TD
+    A["User's Browser"] -->|HTTP Request| B["AWS EC2 - Ubuntu Linux"]
+    B --> C["Nginx Reverse Proxy"]
+    C --> D["Gunicorn Application Server"]
+    D --> E["BloomHer Flask Application"]
+    F["systemd Service Manager"] -.-> D
+```
+
 User's Browser → Nginx Reverse Proxy → Gunicorn → Python Flask Application
 
 The architecture represents the EC2 application deployment practiced in the project.
