@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>BloomHer | Women's Wellness</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff1f7;
+            color: #493447;
+            text-align: center;
+            padding: 30px 15px;
+        }
+        main {
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px #ead0de;
+        }
+        h1 { color: #a62776; }
+        label {
+            display: block;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        input, button {
+            box-sizing: border-box;
+            display: block;
+            width: 90%;
+            padding: 12px;
+            margin: 10px auto;
+            border-radius: 8px;
+            border: 1px solid #d8adca;
+        }
+        button {
+            background: #a62776;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .result {
+            background: #fce6f2;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 25px;
+            text-align: left;
+        }
+        .error { color: #a50021; }
+        small { display: block; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>🌸 BloomHer</h1>
+        <h2>Know Your Cycle</h2>
+        <p>Your wellness journey starts here.</p>
+
+        <form method="POST">
+            <label for="last_period">
+                First day of last period
+            </label>
+            <input type="date" id="last_period"
+                   name="last_period" required>
+
+            <label for="cycle_length">
+                Average cycle length (days)
+            </label>
+            <input type="number" id="cycle_length"
+                   name="cycle_length"
+                   min="21" max="45"
+                   value="28" required>
+
+            <button type="submit">
+                Calculate My Cycle
+            </button>
+        </form>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if result %}
+        <section class="result">
+            <h3>Your Estimated Results</h3>
+            <p>Next period: {{ result.next_period }}</p>
+            <p>Estimated ovulation: {{ result.ovulation }}</p>
+            <p>Possible fertile window:
+               {{ result.fertile_start }} to
+               {{ result.fertile_end }}</p>
+        </section>
+        {% endif %}
+
+        <small>
+            Calendar estimates only. Not medical advice,
+            confirmation of ovulation, or reliable
+            birth control guidance.
+        </small>
+    </main>
+</body>
+</html>
